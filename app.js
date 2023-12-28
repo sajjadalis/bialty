@@ -1,11 +1,15 @@
-import Home from "./views/Home.js";
+import Settings from "./views/Settings.js";
 import Faq from "./views/Faq.js";
 import Recommendations from "./views/Recommendations.js";
+import { Logo } from "../components/Icons.js";
 
 const { ref } = Vue;
 
 // Create the main app
 const App = {
+  components: {
+    Logo,
+  },
   setup() {
     const activeIndex = ref("1");
     const handleSelect = (key, keyPath) => {
@@ -22,7 +26,7 @@ const App = {
 const router = VueRouter.createRouter({
   history: VueRouter.createWebHashHistory(),
   routes: [
-    { path: "/", component: Home },
+    { path: "/", component: Settings },
     { path: "/faq", component: Faq },
     { path: "/recommendations", component: Recommendations },
   ],
