@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 Composition API Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-plus/dist/index.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="https://unpkg.com/element-plus"></script>
+    <script src="https://unpkg.com/@element-plus/icons-vue"></script>
+  </head>
+  <body>
+    <div id="app" class="w-5/6 mx-auto">
+      <div class="common-layout">
+        <el-container>
+          <el-header>
+            <el-menu
+              :default-active="activeIndex"
+              class="el-menu-demo flex justify-between"
+              mode="horizontal"
+              :ellipsis="false"
+              @select="handleSelect"
+              router
+            >
+              <el-menu-item index="/">
+                <img
+                  style="width: 100px"
+                  src="https://element-plus.org/images/element-plus-logo.svg"
+                  alt="Element logo"
+                />
+              </el-menu-item>
+
+              <div class="flex">
+                <el-menu-item index="/">Settings</el-menu-item>
+                <el-menu-item index="/faq">FAQ</el-menu-item>
+                <el-menu-item index="/recommendations"
+                  >Recommendations</el-menu-item
+                >
+              </div>
+            </el-menu>
+          </el-header>
+
+          <el-main>
+            <el-card shadow="never" class="box-card mb-10">
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="">
+                    <span class="text-lg font-bold"
+                      >Auto Focus Keyword Plugin</span
+                    >
+                  </div>
+                  <div class="text mt-3">
+                    Did you know that Auto Focus Keyword plugin can help you get
+                    the focus keywords automatically.
+                  </div>
+                </div>
+                <el-button class="button">Give it a try</el-button>
+              </div>
+            </el-card>
+
+            <el-row :gutter="40">
+              <el-col :span="18">
+                <router-view></router-view>
+              </el-col>
+
+              <el-col :span="6">
+                <el-card shadow="hover" class="box-card mb-5">
+                  <span class="text-sm font-bold"
+                    >Boost your SEO with Meta Tags</span
+                  >
+                  <p class="text-xs">
+                    Auto-populate custom SEO META Keywords everywhere on your
+                    website based on Post titles, Yoast/Rank Math Focus
+                    keywords, and more. Add custom META tags to help Search
+                    engines such as Google to understand additional information
+                    about the webpage (for ranking purposes).
+                  </p>
+                  <el-button type="primary" size="large" class="w-full"
+                    >Read More</el-button
+                  >
+                </el-card>
+
+                <el-card shadow="hover" class="box-card mb-5">
+                  <span class="text-sm font-bold"
+                    >Boost your SEO with Automatic Internal Links</span
+                  >
+                  <p class="text-xs">
+                    Automatic Internal Links for SEO plugin creates and boosts
+                    your internal linking in 2 clicks, using Yoast / Rank Math
+                    Focus keywords as anchor text for internal link building.
+                  </p>
+                  <el-button type="primary" size="large" class="w-full"
+                    >Read More</el-button
+                  >
+                </el-card>
+              </el-col>
+            </el-row>
+          </el-main>
+        </el-container>
+      </div>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
