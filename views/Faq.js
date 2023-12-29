@@ -1,7 +1,6 @@
 const Faq = {
   template: `
 <div>
-    <h1>FAQ</h1>
     <div class="demo-collapse">
     <el-collapse v-model="activeNames" @change="handleChange">
       <el-collapse-item title="What is alt text?" name="1">

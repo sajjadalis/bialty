@@ -38,6 +38,7 @@
 
               <div class="flex items-center">
                 <el-menu-item index="/">Settings</el-menu-item>
+                <el-menu-item index="/wizard">Wizard</el-menu-item>
                 <el-menu-item index="/faq">FAQ</el-menu-item>
                 <el-menu-item index="/recommendations"
                   >Recommendations</el-menu-item
@@ -71,6 +72,8 @@
                 <el-button size="large" class="button">Give it a try</el-button>
               </div>
             </el-card>
+
+            <h1 class="uppercase">{{ $route.name }}</h1>
 
             <el-row :gutter="40">
               <el-col :span="18">

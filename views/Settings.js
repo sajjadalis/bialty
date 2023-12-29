@@ -11,28 +11,22 @@ import {
 const Home = {
   template: `
   <div>
-    <h1>Settings</h1>
+    <el-text type="primary" class="text-lg font-bold">Step 1: Pages and Posts Alt texts</el-text>
+    <el-card shadow="hover" class="box-card mb-10 p-3 pb-5 mt-2">
 
-    <el-steps :active="active" finish-status="success" class="mb-10">
-      <el-step title="Step 1" :icon="Page" description="Page and Post Alt texts"/>
-      <el-step title="Step 2" :icon="Cart" description="Product Alt texts (for Woocommerce)" />
-      <el-step title="Step 3" :icon="Website" description="Site title, Disable Homepage, Blacklist" />
-      <el-step title="Step 4" :icon="Review" description="Review & Save Settings"/>
-    </el-steps>
-
-    <div v-if="active === 0">
-      <div class="flex items-center">
-        <label class="font-bold text-lg mr-3">Select what to do with missing alt tags</label>
+      <div class="flex items-center mb-3">
+        <label class="font-bold text-md mr-2">Select what to do with missing alt tags</label>
         <el-tooltip
-          class="box-item"
-          effect="dark"
-          content="Missing alt tags are which are not defined and all images show an empty alt tag"
-          placement="right-start"
-        >
-          <Info class="w-6 h-6" />
+            class="box-item"
+            effect="dark"
+            content="Missing alt tags are which are not defined and all images show an empty alt tag"
+            placement="right-start"
+          >
+            <Info class="w-6 h-6" />
         </el-tooltip>
       </div>
-      <el-select v-model="value" placeholder="Select" size="large" class="w-full mt-5">
+
+      <el-select v-model="value" placeholder="Select" size="large" class="w-full mb-5">
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -42,8 +36,8 @@ const Home = {
         />
       </el-select>
 
-      <div class="flex items-center mt-10">
-        <label class="font-bold text-lg mr-3">Select what to do with existing alt tags</label>
+      <div class="flex items-center mb-3">
+        <label class="font-bold text-md mr-2">Select what to do with existing alt tags</label>
         <el-tooltip
           class="box-item"
           effect="dark"
@@ -54,7 +48,7 @@ const Home = {
         </el-tooltip>
       </div>
 
-      <el-select v-model="value" placeholder="Select" size="large" class="w-full mt-5">
+      <el-select v-model="value" placeholder="Select" size="large" class="w-full">
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -63,21 +57,26 @@ const Home = {
           :disabled="item.disabled"
         />
       </el-select>
-    </div>
+    </el-card>
 
-    <div v-if="active === 1">
-    <div class="flex items-center">
-        <label class="font-bold text-lg mr-2">Select what to do with missing product alt tags</label>
+    <el-text type="primary" class="text-lg font-bold">Step 2: Product Alt texts (for Woocommerce)</el-text>
+    <el-card shadow="hover" class="box-card mb-10 p-3 pb-5 mt-2">
+
+      <el-alert title="Get Pro version to enable Bulk Image Alt Text for Woocommerce Products" type="error" class="mb-5" />
+
+      <div class="flex items-center mb-3">
+        <label class="font-bold text-md mr-2">Select what to do with missing product alt tags</label>
         <el-tooltip
-          class="box-item"
-          effect="dark"
-          content="Missing alt tags are which are not defined and all images show an empty alt tag"
-          placement="right-start"
-        >
-          <Info class="w-6 h-6" />
+            class="box-item"
+            effect="dark"
+            content="Missing alt tags are which are not defined and all images show an empty alt tag"
+            placement="right-start"
+          >
+            <Info class="w-6 h-6" />
         </el-tooltip>
       </div>
-      <el-select v-model="value" placeholder="Select" size="large" class="w-full mt-5" disabled>
+
+      <el-select v-model="value" placeholder="Select" size="large" disabled class="w-full mb-5">
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -87,8 +86,8 @@ const Home = {
         />
       </el-select>
 
-      <div class="flex items-center mt-10">
-        <label class="font-bold text-lg mr-2">Select what to do with existing product alt tags</label>
+      <div class="flex items-center mb-3">
+        <label class="font-bold text-md mr-2">Select what to do with existing product alt tags</label>
         <el-tooltip
           class="box-item"
           effect="dark"
@@ -99,7 +98,7 @@ const Home = {
         </el-tooltip>
       </div>
 
-      <el-select v-model="value" placeholder="Select" size="large" class="w-full mt-5" disabled>
+      <el-select v-model="value" placeholder="Select" size="large" class="w-full mb-5" disabled>
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -109,57 +108,31 @@ const Home = {
         />
       </el-select>
 
-      <div class="mt-6 flex items-center">
-        <label class="font-bold text-lg mr-2">Disable for Product Gallery</label>
-        <el-tooltip
-          class="box-item mr-3"
-          effect="dark"
-          content="Existing alt tags are the one which you already defined and want to replace."
-          placement="right-start"
-        >
-          <Info class="w-6 h-6" />
-        </el-tooltip>
-        <el-switch v-model="disable_gallery" class="ml-3" disabled size="large" />
-      </div>
-    </div>
-
-    <div v-if="active === 2" style="margin-top: 20px;">
       <el-row :gutter="20">
-        <el-col :span="7">
-          <label class="font-bold text-lg mr-2">Add Site Title</label>
-          <el-tooltip
-              class="box-item mr-3"
-              effect="dark"
-              content="Existing alt tags are the one which you already defined and want to replace."
-              placement="right-start"
-            >
-              <Info class="w-6 h-6" />
-          </el-tooltip>
+        <el-col :span="9">
+          <div class="flex items-center mt-2">
+            <label class="font-bold text-md mr-2">Disable for Product Gallery</label>
+            <el-tooltip
+                class="box-item mr-3"
+                effect="dark"
+                content="Existing alt tags are the one which you already defined and want to replace."
+                placement="right-start"
+              >
+                <Info class="w-6 h-6" />
+            </el-tooltip>
+          </div>
         </el-col>
-        <el-col :span="17">
-          <el-switch v-model="disable_gallery" size="large" />
-        </el-col>
-      </el-row>
-
-      <el-row :gutter="20" class="mt-5">
-        <el-col :span="7">
-          <label class="font-bold text-lg mr-2">Disable for Homepage</label>
-          <el-tooltip
-              class="box-item"
-              effect="dark"
-              content="Existing alt tags are the one which you already defined and want to replace."
-              placement="right-start"
-            >
-              <Info class="w-6 h-6" />
-          </el-tooltip>
-        </el-col>
-        <el-col :span="17">
-          <el-switch v-model="disable_gallery" size="large" />
+        <el-col :span="15">
+          <el-switch v-model="disable_gallery" disabled size="large" />
         </el-col>
       </el-row>
+    </el-card>
 
-      <div class="flex items-center mt-10">
-        <label class="font-bold text-lg mr-3">Black List Posts/Pages/Products</label>
+    <el-text type="primary" class="text-lg font-bold">Step 3: Blacklist, Site title, Disable Homepage</el-text>
+    <el-card shadow="hover" class="box-card mb-10 p-3 mt-2">
+
+      <div class="flex items-center mb-3">
+        <label class="font-bold text-md mr-3">Black List Posts/Pages/Products</label>
         <el-tooltip
           class="box-item"
           effect="dark"
@@ -173,8 +146,9 @@ const Home = {
       <el-select
         v-model="blacklist"
         multiple
+        size="large"
         placeholder="Select the pages where you don't want to use Bialty"
-        class="w-full mt-5"
+        class="w-full mb-5"
       >
         <el-option
           v-for="item in posts"
@@ -183,99 +157,60 @@ const Home = {
           :value="item.value"
         />
       </el-select>
-    </div>
 
-    <div v-if="active === 3" style="margin-top: 20px;">
-      <h2>Review</h2>  
-      
-      <el-card shadow="never" class="box-card mb-5">
-        <span class="text-md font-bold">Post and Pages Settings</span>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Empty alt tags will be replaced with Yoast / Rank Math Focus Keyword
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Existing alt tags will be replaced with Yoast / Rank Math Focus Keyword
-        </p>
-      </el-card>
+      <el-row :gutter="20" class="mb-5">
+        <el-col :span="9">
+          <div class="flex items-center mt-2">
+            <label class="font-bold text-md mr-2">Add Site Title</label>
+            <el-tooltip
+                class="box-item mr-3"
+                effect="dark"
+                content="Existing alt tags are the one which you already defined and want to replace."
+                placement="right-start"
+              >
+                <Info class="w-6 h-6" />
+            </el-tooltip>
+          </div>
+        </el-col>
+        <el-col :span="15">
+          <el-switch v-model="disable_gallery" size="large" />
+        </el-col>
+      </el-row>
 
-      <el-card shadow="never" class="box-card mb-5">
-        <span class="text-md font-bold">WooCommerce Products Settings</span>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Empty product alt tags will be replaced with Yoast / Rank Math Focus Keyword
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Close class="w-6 h-6 mr-2" /> Existing product alt tags will not be replaced. Setting is disabled.
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Alt tags are not disabled for Product Gallery. (Recommended setting)
-        </p>
-      </el-card>
+      <el-row :gutter="20">
+        <el-col :span="9">
+          <div class="flex items-center mt-2">
+            <label class="font-bold text-md mr-2">Disable for Homepage</label>
+            <el-tooltip
+                class="box-item"
+                effect="dark"
+                content="Existing alt tags are the one which you already defined and want to replace."
+                placement="right-start"
+              >
+                <Info class="w-6 h-6" />
+            </el-tooltip>
+          </div>
+        </el-col>
+        <el-col :span="15">
+          <el-switch v-model="disable_gallery" size="large" />
+        </el-col>
+      </el-row>
+    </el-card>
 
-      <el-card shadow="never" class="box-card mb-5">
-        <span class="text-md font-bold">Website title, Disable Homepage, Blacklist</span>
-        <p class="text-xs mb-0 flex items-center">
-        <Close class="w-6 h-6 mr-2" /> Website title will not be added to alt tags.
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Alt tags should work on static homepage. (Recommended setting)
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> You have {{ blacklist.length }} pages in blacklist. &nbsp; <span v-if="blacklist.length > 0">Bialty won't work on these selected pages.</span>
-        </p>
-      </el-card>
-
-    </div>
-
-    <div v-if="active === 4">
-      <div class="flex items-center justify-center mb-5" style="color: #67c23a">
-        <Check class="w-16 h-16 mr-3" /> <span class="text-xl font-bold">All Done</span>
+    <div class="flex justify-between items-center">
+      <el-button type="success" size="large" @click="next">Save Settings</el-button>
+      <div class="flex items-center mt-2">
+        <label class="font-bold text-md mr-2">Delete Settings</label>
+        <el-tooltip
+            class="box-item"
+            effect="dark"
+            content="Checking this box will remove all settings when you deactivate plugin."
+            placement="right-start"
+          >
+            <Info class="w-6 h-6" />
+        </el-tooltip>
+        <el-switch v-model="disable_gallery" size="large" class="ml-3" />
       </div>
-
-      <el-card shadow="never" class="box-card mb-5">
-        <span class="text-md font-bold">Post and Pages Settings</span>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Empty alt tags will be replaced with Yoast / Rank Math Focus Keyword
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Existing alt tags will be replaced with Yoast / Rank Math Focus Keyword
-        </p>
-      </el-card>
-
-      <el-card shadow="never" class="box-card mb-5">
-        <span class="text-md font-bold">WooCommerce Products Settings</span>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Empty product alt tags will be replaced with Yoast / Rank Math Focus Keyword
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Close class="w-6 h-6 mr-2" /> Existing product alt tags will not be replaced. Setting is disabled.
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Alt tags are not disabled for Product Gallery. (Recommended setting)
-        </p>
-      </el-card>
-
-      <el-card shadow="never" class="box-card mb-5">
-        <span class="text-md font-bold">Website title, Disable Homepage, Blacklist</span>
-        <p class="text-xs mb-0 flex items-center">
-        <Close class="w-6 h-6 mr-2" /> Website title will not be added to alt tags.
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> Alt tags should work on static homepage. (Recommended setting)
-        </p>
-        <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> You have {{ blacklist.length }} pages in blacklist. &nbsp; <span v-if="blacklist.length > 0">Bialty won't work on these selected pages.</span>
-        </p>
-      </el-card>
-
-      <el-button type="primary" size="large" class="w-full" @click="active = 0">
-        Restart the Settings Wizard
-      </el-button>
-    </div>
-
-    <div class="mt-10">
-      <el-button type="primary" size="large" @click="prev" v-if="active < 4" :disabled="active === 0">Previous step</el-button>
-      <el-button type="primary" size="large" @click="next" v-if="active < 3">Next step</el-button>
-      <el-button type="success" size="large" @click="next" v-if="active === 3">Save Settings</el-button>
     </div>
   </div>
   `,

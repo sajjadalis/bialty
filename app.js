@@ -1,4 +1,5 @@
 import Settings from "./views/Settings.js";
+import Wizard from "./views/Wizard.js";
 import Faq from "./views/Faq.js";
 import Recommendations from "./views/Recommendations.js";
 import { Logo, Sun, Moon } from "../components/Icons.js";
@@ -54,9 +55,14 @@ const App = {
 const router = VueRouter.createRouter({
   history: VueRouter.createWebHashHistory(),
   routes: [
-    { path: "/", component: Settings },
-    { path: "/faq", component: Faq },
-    { path: "/recommendations", component: Recommendations },
+    { path: "/", component: Settings, name: "Settings" },
+    { path: "/wizard", component: Wizard, name: "Settings Wizard" },
+    { path: "/faq", component: Faq, name: "Faq" },
+    {
+      path: "/recommendations",
+      component: Recommendations,
+      name: "Recommendations",
+    },
   ],
 });
 
