@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue 3 Composition API Demo</title>
+    <title>Bialty Settings Demo</title>
     <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/element-plus/dist/index.css"
@@ -73,7 +73,21 @@
               </div>
             </el-card>
 
-            <h1 class="uppercase">{{ $route.name }}</h1>
+            <h1 class="uppercase flex items-center">
+              <span v-if="$route.name === 'Settings'">
+                <setting-icon class="w-10 h-10 mr-2" />
+              </span>
+              <span v-if="$route.name === 'Settings Wizard'">
+                <wand-icon class="w-10 h-10 mr-2" />
+              </span>
+              <span v-if="$route.name === 'Faq'">
+                <faq-icon class="w-10 h-10 mr-2" />
+              </span>
+              <span v-if="$route.name === 'Recommendations'">
+                <recs-icon class="w-10 h-10 mr-2" />
+              </span>
+              {{ $route.name }}
+            </h1>
 
             <el-row :gutter="40">
               <el-col :span="18">

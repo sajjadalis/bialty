@@ -2,7 +2,15 @@ import Settings from "./views/Settings.js";
 import Wizard from "./views/Wizard.js";
 import Faq from "./views/Faq.js";
 import Recommendations from "./views/Recommendations.js";
-import { Logo, Sun, Moon } from "../components/Icons.js";
+import {
+  Logo,
+  Sun,
+  Moon,
+  SettingIcon,
+  WandIcon,
+  FaqIcon,
+  RecsIcon,
+} from "../components/Icons.js";
 
 const { ref, onMounted, watch } = Vue;
 
@@ -12,6 +20,10 @@ const App = {
     Logo,
     Sun,
     Moon,
+    SettingIcon,
+    WandIcon,
+    FaqIcon,
+    RecsIcon,
   },
   setup() {
     const activeIndex = ref("1");
