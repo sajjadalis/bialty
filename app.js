@@ -1,14 +1,16 @@
 import Settings from "./views/Settings.js";
 import Faq from "./views/Faq.js";
 import Recommendations from "./views/Recommendations.js";
-import { Logo } from "../components/Icons.js";
+import { Logo, Sun, Moon } from "../components/Icons.js";
 
-const { ref } = Vue;
+const { ref, onMounted, watch } = Vue;
 
 // Create the main app
 const App = {
   components: {
     Logo,
+    Sun,
+    Moon,
   },
   setup() {
     const activeIndex = ref("1");
@@ -16,9 +18,35 @@ const App = {
       console.log(key, keyPath);
     };
 
+    const isDark = ref(false);
+
+    onMounted(() => {
+      let dark = localStorage.getItem("isDark");
+      if (dark == "true") {
+        document.documentElement.classList.add("dark");
+        isDark.value = true;
+      } else if (!dark) {
+        document.documentElement.classList.add("dark");
+        isDark.value = true;
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    });
+
+    watch(isDark, val => {
+      if (val) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("isDark", val);
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("isDark", val);
+      }
+    });
+
     return {
       activeIndex,
       handleSelect,
+      isDark,
     };
   },
 };

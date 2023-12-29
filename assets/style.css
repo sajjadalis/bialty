@@ -3,6 +3,11 @@ body {
   'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 
+.el-collapse-item__header {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
 .flex-grow {
   flex-grow: 1;
 }

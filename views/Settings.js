@@ -1,5 +1,12 @@
-import { CounterComponent } from "../components/counter.js";
-import { Info, Check, Close } from "../components/Icons.js";
+import {
+  Info,
+  Check,
+  Close,
+  Page,
+  Cart,
+  Website,
+  Review,
+} from "../components/Icons.js";
 
 const Home = {
   template: `
@@ -7,10 +14,10 @@ const Home = {
     <h1>Settings</h1>
 
     <el-steps :active="active" finish-status="success" class="mb-10">
-      <el-step title="Step 1" description="Page and Post Alt texts"/>
-      <el-step title="Step 2" description="Product Alt texts (for Woocommerce)" />
-      <el-step title="Step 3" description="Site title, Disable Homepage, Blacklist" />
-      <el-step title="Step 4" description="Review & Save Settings"/>
+      <el-step title="Step 1" :icon="Page" description="Page and Post Alt texts"/>
+      <el-step title="Step 2" :icon="Cart" description="Product Alt texts (for Woocommerce)" />
+      <el-step title="Step 3" :icon="Website" description="Site title, Disable Homepage, Blacklist" />
+      <el-step title="Step 4" :icon="Review" description="Review & Save Settings"/>
     </el-steps>
 
     <div v-if="active === 0">
@@ -150,6 +157,32 @@ const Home = {
           <el-switch v-model="disable_gallery" size="large" />
         </el-col>
       </el-row>
+
+      <div class="flex items-center mt-10">
+        <label class="font-bold text-lg mr-3">Black List Posts/Pages/Products</label>
+        <el-tooltip
+          class="box-item"
+          effect="dark"
+          content="Disable BIALTY on selected pages"
+          placement="right-start"
+        >
+          <Info class="w-6 h-6" />
+        </el-tooltip>
+      </div>
+
+      <el-select
+        v-model="blacklist"
+        multiple
+        placeholder="Select the pages where you don't want to use Bialty"
+        class="w-full mt-5"
+      >
+        <el-option
+          v-for="item in posts"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
     </div>
 
     <div v-if="active === 3" style="margin-top: 20px;">
@@ -187,14 +220,56 @@ const Home = {
         <Check class="w-6 h-6 mr-2" /> Alt tags should work on static homepage. (Recommended setting)
         </p>
         <p class="text-xs mb-0 flex items-center">
-        <Check class="w-6 h-6 mr-2" /> You have not listed any URL to blacklist.
+        <Check class="w-6 h-6 mr-2" /> You have {{ blacklist.length }} pages in blacklist. &nbsp; <span v-if="blacklist.length > 0">Bialty won't work on these selected pages.</span>
         </p>
       </el-card>
 
     </div>
 
-    <div v-if="active === 4" class="flex items-center justify-center">
-      <Check class="w-16 h-16 mr-3" style="color: green" /> <span class="text-xl font-bold">All Done</span>
+    <div v-if="active === 4">
+      <div class="flex items-center justify-center mb-5" style="color: #67c23a">
+        <Check class="w-16 h-16 mr-3" /> <span class="text-xl font-bold">All Done</span>
+      </div>
+
+      <el-card shadow="never" class="box-card mb-5">
+        <span class="text-md font-bold">Post and Pages Settings</span>
+        <p class="text-xs mb-0 flex items-center">
+        <Check class="w-6 h-6 mr-2" /> Empty alt tags will be replaced with Yoast / Rank Math Focus Keyword
+        </p>
+        <p class="text-xs mb-0 flex items-center">
+        <Check class="w-6 h-6 mr-2" /> Existing alt tags will be replaced with Yoast / Rank Math Focus Keyword
+        </p>
+      </el-card>
+
+      <el-card shadow="never" class="box-card mb-5">
+        <span class="text-md font-bold">WooCommerce Products Settings</span>
+        <p class="text-xs mb-0 flex items-center">
+        <Check class="w-6 h-6 mr-2" /> Empty product alt tags will be replaced with Yoast / Rank Math Focus Keyword
+        </p>
+        <p class="text-xs mb-0 flex items-center">
+        <Close class="w-6 h-6 mr-2" /> Existing product alt tags will not be replaced. Setting is disabled.
+        </p>
+        <p class="text-xs mb-0 flex items-center">
+        <Check class="w-6 h-6 mr-2" /> Alt tags are not disabled for Product Gallery. (Recommended setting)
+        </p>
+      </el-card>
+
+      <el-card shadow="never" class="box-card mb-5">
+        <span class="text-md font-bold">Website title, Disable Homepage, Blacklist</span>
+        <p class="text-xs mb-0 flex items-center">
+        <Close class="w-6 h-6 mr-2" /> Website title will not be added to alt tags.
+        </p>
+        <p class="text-xs mb-0 flex items-center">
+        <Check class="w-6 h-6 mr-2" /> Alt tags should work on static homepage. (Recommended setting)
+        </p>
+        <p class="text-xs mb-0 flex items-center">
+        <Check class="w-6 h-6 mr-2" /> You have {{ blacklist.length }} pages in blacklist. &nbsp; <span v-if="blacklist.length > 0">Bialty won't work on these selected pages.</span>
+        </p>
+      </el-card>
+
+      <el-button type="primary" size="large" class="w-full" @click="active = 0">
+        Restart the Settings Wizard
+      </el-button>
     </div>
 
     <div class="mt-10">
@@ -202,13 +277,9 @@ const Home = {
       <el-button type="primary" size="large" @click="next" v-if="active < 3">Next step</el-button>
       <el-button type="success" size="large" @click="next" v-if="active === 3">Save Settings</el-button>
     </div>
-    <br />
-    <br />
-    <!-- <el-button @click="increment">Increment: {{ count }}</el-button> -->
   </div>
   `,
   components: {
-    "counter-component": CounterComponent,
     Info,
     Check,
     Close,
@@ -261,6 +332,30 @@ const Home = {
       },
     ];
 
+    const blacklist = ref([]);
+    const posts = [
+      {
+        value: 1,
+        label: "Exploring the Enchanting Streets of Paris",
+      },
+      {
+        value: 2,
+        label: "Adventures in the Serene Landscapes of Kyoto",
+      },
+      {
+        value: 3,
+        label: "Discovering Hidden Gems in the Amalfi Coast",
+      },
+      {
+        value: 4,
+        label: "Journey through the Vibrant Markets of Marrakech",
+      },
+      {
+        value: 5,
+        label: "Escaping to the Tranquil Islands of Bali",
+      },
+    ];
+
     // Define methods
     const increment = () => {
       count.value++;
@@ -276,6 +371,12 @@ const Home = {
       value,
       options,
       disable_gallery,
+      blacklist,
+      posts,
+      Page,
+      Cart,
+      Website,
+      Review,
     };
   },
 };

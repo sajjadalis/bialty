@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue 3 Composition API Demo</title>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/element-plus/dist/index.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-plus/theme-chalk/index.css"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/dark.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue-router@4"></script>
     <script src="https://unpkg.com/element-plus"></script>
@@ -31,12 +36,20 @@
                 <Logo />
               </el-menu-item>
 
-              <div class="flex">
+              <div class="flex items-center">
                 <el-menu-item index="/">Settings</el-menu-item>
                 <el-menu-item index="/faq">FAQ</el-menu-item>
                 <el-menu-item index="/recommendations"
                   >Recommendations</el-menu-item
                 >
+                <el-button @click="isDark = !isDark" type="text">
+                  <div v-if="isDark">
+                    <Moon class="w-5 h-5" />
+                  </div>
+                  <div v-else>
+                    <Sun class="w-5 h-5" />
+                  </div>
+                </el-button>
               </div>
             </el-menu>
           </el-header>
@@ -51,11 +64,11 @@
                     >
                   </div>
                   <div class="text mt-3">
-                    Did you know that Auto Focus Keyword plugin can help you get
-                    the focus keywords automatically.
+                    Did you know that the Auto Focus Keyword plugin can
+                    automatically generate focus keywords for you?
                   </div>
                 </div>
-                <el-button class="button">Give it a try</el-button>
+                <el-button size="large" class="button">Give it a try</el-button>
               </div>
             </el-card>
 
