@@ -10,6 +10,7 @@ import {
   WandIcon,
   FaqIcon,
   RecsIcon,
+  AutoFocusIcon,
 } from "../components/Icons.js";
 
 const { ref, onMounted, watch } = Vue;
@@ -24,6 +25,7 @@ const App = {
     WandIcon,
     FaqIcon,
     RecsIcon,
+    AutoFocusIcon,
   },
   setup() {
     const activeIndex = ref("1");
