@@ -8,9 +8,7 @@ body {
   font-size: 0.85rem;
 }
 
-.flex-grow {
-  flex-grow: 1;
-}
+[v-cloak] {display: none}
 
 .flex { display: flex; }
 .inline-flex { display: inline-flex; }
