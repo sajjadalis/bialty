@@ -171,6 +171,7 @@ const Home = {
       <el-select
         v-model="blacklist"
         multiple
+        size="large"
         placeholder="Select the pages where you don't want to use Bialty"
         class="w-full mt-5"
       >
