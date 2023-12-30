@@ -1,6 +1,7 @@
 body {
     font-family: Inter, 'Helvetica Neue', Helvetica, 'PingFang SC',
   'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  background-color: #f1f1f1;
 }
 
 .el-collapse-item__header {
@@ -8,8 +9,22 @@ body {
   font-size: 0.85rem;
 }
 
+.el-cs-success {
+  color: var(--el-color-success);
+}
+
+/* .container-card .el-card__body {
+  padding-top: 0;
+  padding-bottom: 0;
+} */
+
 [v-cloak] {display: none}
 
+/* Display Property Utilities */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.hidden { display: none; }
 .flex { display: flex; }
 .inline-flex { display: inline-flex; }
 
