@@ -4,20 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bialty Settings Demo</title>
-    <!-- <link
-      rel="stylesheet"
-      href="https://unpkg.com/element-plus/dist/index.css"
-    /> -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/element-plus/theme-chalk/index.css"
-    />
+    <link rel="stylesheet" href="./assets/index.css" />
     <link rel="stylesheet" href="./assets/dark.css" />
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue-router@4"></script>
     <script src="https://unpkg.com/element-plus"></script>
-    <script src="https://unpkg.com/@element-plus/icons-vue"></script>
   </head>
   <body>
     <div id="app" class="w-5/6 mx-auto" v-cloak>
@@ -37,13 +29,17 @@
               </el-menu-item>
 
               <div class="flex items-center">
-                <el-menu-item index="/">Settings</el-menu-item>
+                <el-menu-item index="/">Settings </el-menu-item>
                 <el-menu-item index="/wizard">Wizard</el-menu-item>
                 <el-menu-item index="/faq">FAQ</el-menu-item>
                 <el-menu-item index="/recommendations"
                   >Recommendations</el-menu-item
                 >
-                <el-button @click="isDark = !isDark" type="text">
+                <el-button
+                  @click="isDark = !isDark"
+                  type="text"
+                  class="px-2 pt-5 pb-4"
+                >
                   <div v-if="isDark">
                     <Moon class="w-5 h-5" />
                   </div>
@@ -56,30 +52,6 @@
           </el-header>
 
           <el-main>
-            <el-card shadow="never" class="box-card mb-10">
-              <div class="flex items-center">
-                <div class="w-1/12">
-                  <auto-focus-icon class="w-16 h-16 ml-1" />
-                </div>
-                <div class="flex items-center justify-between w-11/12">
-                  <div>
-                    <div class="">
-                      <span class="text-lg font-bold"
-                        >Auto Focus Keyword Plugin</span
-                      >
-                    </div>
-                    <div class="text mt-3">
-                      Did you know that the Auto Focus Keyword plugin can
-                      automatically generate focus keywords for you?
-                    </div>
-                  </div>
-                  <el-button size="large" class="button"
-                    >Give it a try</el-button
-                  >
-                </div>
-              </div>
-            </el-card>
-
             <h1 class="uppercase flex items-center">
               <span v-if="$route.name === 'Settings'">
                 <setting-icon class="w-10 h-10 mr-2" />

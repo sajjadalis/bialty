@@ -6,13 +6,33 @@ import {
   Cart,
   Website,
   Review,
+  AutoFocusIcon,
 } from "../components/Icons.js";
 
 const Home = {
   template: `
   <div>
     <el-text type="primary" class="text-lg font-bold">Step 1: Pages and Posts Alt texts</el-text>
-    <el-card shadow="hover" class="box-card mb-10 p-3 pb-5 mt-2">
+    <el-card shadow="never" class="box-card mb-10 p-3 pb-5 mt-2">
+
+    <el-card shadow="never" class="box-card mb-5">
+      <div class="flex items-center  justify-between">
+          <div>
+            <div class="">
+              <span class="text-lg font-bold"
+                >Auto Focus Keyword Plugin is not Installed</span
+              >
+            </div>
+            <div class="text-sm mt-3">
+              Did you know that the Auto Focus Keyword plugin can
+              automatically add focus keywords for you?
+            </div>
+          </div>
+          <el-button size="large" class="button"
+            >Give it a try</el-button
+          >
+      </div>
+      </el-card>
 
       <div class="flex items-center mb-3">
         <label class="font-bold text-md mr-2">Select what to do with missing alt tags</label>
@@ -60,7 +80,7 @@ const Home = {
     </el-card>
 
     <el-text type="primary" class="text-lg font-bold">Step 2: Product Alt texts (for Woocommerce)</el-text>
-    <el-card shadow="hover" class="box-card mb-10 p-3 pb-5 mt-2">
+    <el-card shadow="never" class="box-card mb-10 p-3 pb-5 mt-2">
 
       <el-alert title="Get Pro version to enable Bulk Image Alt Text for Woocommerce Products" type="error" class="mb-5" />
 
@@ -129,7 +149,7 @@ const Home = {
     </el-card>
 
     <el-text type="primary" class="text-lg font-bold">Step 3: Blacklist, Site title, Disable Homepage</el-text>
-    <el-card shadow="hover" class="box-card mb-10 p-3 mt-2">
+    <el-card shadow="never" class="box-card mb-10 p-3 mt-2">
 
       <div class="flex items-center mb-3">
         <label class="font-bold text-md mr-3">Black List Posts/Pages/Products</label>
@@ -218,11 +238,10 @@ const Home = {
     Info,
     Check,
     Close,
+    AutoFocusIcon,
   },
   setup() {
     const { ref, onMounted, watch } = Vue;
-    // Use ref for reactive data
-    const count = ref(0);
 
     const active = ref(0);
     const disable_gallery = ref(false);
@@ -234,11 +253,6 @@ const Home = {
     const prev = () => {
       active.value--;
     };
-
-    // Use watch for watching changes
-    watch(count, (newValue, oldValue) => {
-      console.log(`Count changed from ${oldValue} to ${newValue}`);
-    });
 
     const value = ref("alt_empty_fkw");
     const options = [
@@ -291,15 +305,8 @@ const Home = {
       },
     ];
 
-    // Define methods
-    const increment = () => {
-      count.value++;
-    };
-
     // Return data and methods to be used in the template
     return {
-      count,
-      increment,
       active,
       next,
       prev,
