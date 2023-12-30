@@ -10,7 +10,7 @@ import {
 
 const Home = {
   template: `
-  <div>
+  <el-card shadow="never" class="p-3">
     <el-steps :active="active" finish-status="success" class="mb-10">
       <el-step title="Step 1" :icon="Page" description="Page and Post Alt texts"/>
       <el-step title="Step 2" :icon="Cart" description="Product Alt texts (for Woocommerce)" />
@@ -276,7 +276,7 @@ const Home = {
       <el-button type="primary" size="large" @click="next" v-if="active < 3">Next step</el-button>
       <el-button type="success" size="large" @click="next" v-if="active === 3">Save Settings</el-button>
     </div>
-  </div>
+  </el-card>
   `,
   components: {
     Info,

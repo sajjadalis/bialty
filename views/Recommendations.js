@@ -1,8 +1,8 @@
 const Recommendations = {
   template: `
-  <div>
+  <el-card shadow="never" class="p-3">
       <p>Recommendations goes here</p>
-  </div>
+  </el-card>
   `,
   setup() {},
 };

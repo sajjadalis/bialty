@@ -1,6 +1,6 @@
 const Faq = {
   template: `
-<div>
+<el-card shadow="never" class="p-3">
     <div class="demo-collapse">
     <el-collapse v-model="activeNames" @change="handleChange">
       <el-collapse-item title="What is alt text?" name="1">
@@ -38,7 +38,7 @@ const Faq = {
       </el-collapse-item>
     </el-collapse>
   </div>
-</div>
+</el-card>
 `,
   setup() {
     const { ref } = Vue;

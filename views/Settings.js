@@ -12,10 +12,10 @@ import {
 const Home = {
   template: `
   <div>
+    
+    <el-card shadow="never" class="box-card mb-10 p-3 pb-5">
     <el-text type="primary" class="text-lg font-bold">Step 1: Pages and Posts Alt texts</el-text>
-    <el-card shadow="never" class="box-card mb-10 p-3 pb-5 mt-2">
-
-    <el-card shadow="never" class="box-card mb-5">
+    <el-card shadow="never" class="box-card mb-5 mt-5">
       <div class="flex items-center  justify-between">
           <div>
             <div class="">
@@ -79,10 +79,10 @@ const Home = {
       </el-select>
     </el-card>
 
-    <el-text type="primary" class="text-lg font-bold">Step 2: Product Alt texts (for Woocommerce)</el-text>
-    <el-card shadow="never" class="box-card mb-10 p-3 pb-5 mt-2">
-
-      <el-alert title="Get Pro version to enable Bulk Image Alt Text for Woocommerce Products" type="error" class="mb-5" />
+    
+    <el-card shadow="never" class="box-card mb-10 p-3 pb-5">
+      <el-text type="primary" class="text-lg font-bold">Step 2: Product Alt texts (for Woocommerce)</el-text>
+      <el-alert title="Get Pro version to enable Bulk Image Alt Text for Woocommerce Products" type="error" class="mb-5 mt-5" />
 
       <div class="flex items-center mb-3">
         <label class="font-bold text-md mr-2">Select what to do with missing product alt tags</label>
@@ -148,10 +148,9 @@ const Home = {
       </el-row>
     </el-card>
 
-    <el-text type="primary" class="text-lg font-bold">Step 3: Blacklist, Site title, Disable Homepage</el-text>
     <el-card shadow="never" class="box-card mb-10 p-3 mt-2">
-
-      <div class="flex items-center mb-3">
+      <el-text type="primary" class="text-lg font-bold">Step 3: Blacklist, Site title, Disable Homepage</el-text>
+      <div class="flex items-center mb-5 mt-5">
         <label class="font-bold text-md mr-3">Black List Posts/Pages/Products</label>
         <el-tooltip
           class="box-item"
@@ -218,7 +217,7 @@ const Home = {
     </el-card>
 
     <div class="flex justify-between items-center">
-      <el-button type="success" size="large" @click="next">Save Settings</el-button>
+      <el-button type="success" size="large" class="w-48" @click="next">Save Settings</el-button>
       <div class="flex items-center mt-2">
         <label class="font-bold text-md mr-2">Delete Settings</label>
         <el-tooltip
