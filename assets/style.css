@@ -6,7 +6,7 @@ body {
 
 .el-collapse-item__header {
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .el-cs-success {
@@ -188,6 +188,7 @@ body {
 .mr-8 { margin-right: 2rem; }
 .mr-9 { margin-right: 2.25rem; }
 .mr-10 { margin-right: 2.5rem; }
+.mr-12 { margin-right: 3rem; }
 
 
 /* Padding Utilities */

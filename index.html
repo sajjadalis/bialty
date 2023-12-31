@@ -52,10 +52,10 @@
           </el-header>
 
           <el-main>
-            <el-card shadow="never" class="box-card mb-10">
+            <el-card shadow="never" class="box-card mb-3">
               <div class="flex items-center">
                 <div class="w-1/12">
-                  <Block class="w-20 h-20 ml-1 el-cs-error" />
+                  <bolt-icon class="w-20 h-20 ml-1 el-cs-error" />
                 </div>
                 <div class="flex items-center justify-between w-11/12 ml-3">
                   <div>
@@ -100,7 +100,19 @@
               </div>
             </el-card>
 
-            <h1 class="uppercase flex items-center">
+            <el-alert
+              title="Note: Bialty does not modify the media library. The alt attributes are dynamically added, and you can revert everything by disabling the plugin. Read more details in FAQ"
+              type="warning"
+              show-icon
+              class="mb-3"
+            ></el-alert>
+            <el-alert
+              title='Note: Alt attribute is used for accessibility, while the title attribute is used for hover info. Get "BIGTA - Bulk Image Title Attribute" plugin if you wish to auto add title attributes.'
+              type="info"
+              show-icon
+            ></el-alert>
+
+            <h1 class="uppercase flex items-center mt-5">
               <span v-if="$route.name === 'Settings'">
                 <setting-icon class="w-10 h-10 mr-2" />
               </span>
@@ -122,28 +134,27 @@
               </el-col>
 
               <el-col :span="6">
-                <el-card shadow="hover" class="box-card text-xs mb-5">
-                  <el-text
-                    class="text-md font-bold uppercase mb-3"
-                    type="primary"
+                <el-card shadow="hover" class="box-card mb-5">
+                  <span class="text-sm font-bold"
+                    >Boost your SEO with BIGTA</span
                   >
-                    Boost Your SEO with BIALTY Pro
-                  </el-text>
-                  <div class="mb-2">
-                    <Feature
-                      title="Add Post Title, Image Name as Alt Tag"
-                      icon-class="w-6 h-6 el-cs-success"
-                    />
-                  </div>
-                  <div class="mb-2">
-                    <Feature
-                      title="Add Alt Attributes to Products"
-                      icon-class="w-6 h-6 el-cs-success"
-                    />
-                  </div>
-                  <el-button type="primary" size="large" class="w-full mt-3"
-                    >Read More</el-button
+                  <p class="text-xs">
+                    The BIGTA (Bulk Image title attribute) plugin automatically
+                    adds title attributes (title tags) to your images (within
+                    the HTML code) from page/article titles or image names
+                    and/or site name, either separately or combined, depending
+                    on your requirements.
+                  </p>
+                  <el-button type="primary" size="large" class="w-full"
+                    >Install BIGTA</el-button
                   >
+                  <el-alert
+                    title="Recommended Plugin"
+                    :closable="false"
+                    type="warning"
+                    show-icon
+                    class="mt-3"
+                  ></el-alert>
                 </el-card>
 
                 <el-card shadow="hover" class="box-card mb-5">

@@ -19,18 +19,16 @@ const Home = {
       <div class="flex items-center  justify-between">
           <div>
             <div class="">
-              <span class="text-lg font-bold"
-                >Auto Focus Keyword Plugin is not Installed</span
+              <el-text type="error" class="text-lg font-bold"
+                >Auto Focus Keyword for SEO Plugin is not installed</el-text
               >
             </div>
-            <div class="text-sm mt-3" style="line-height: 150%;">
+            <div class="text-sm mt-3" style="line-height: 160%;">
               No focus keywords everywhere? Did you know that the Auto Focus Keyword plugin can
               automatically add focus keywords for you?
             </div>
           </div>
-          <el-button size="large" class="ml-3"
-            >Give it a try</el-button
-          >
+          <el-button size="large" class="ml-3">Install Now</el-button>
       </div>
       </el-card>
 
@@ -231,6 +229,8 @@ const Home = {
         <el-switch v-model="disable_gallery" size="large" class="ml-3" />
       </div>
     </div>
+
+    <el-backtop :right="20" :bottom="20" />
   </div>
   `,
   components: {

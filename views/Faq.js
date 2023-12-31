@@ -43,7 +43,7 @@ const Faq = {
   setup() {
     const { ref } = Vue;
 
-    const activeNames = ref(["1", "2", "3"]);
+    const activeNames = ref(["1"]);
     const handleChange = val => {
       console.log(val);
     };
