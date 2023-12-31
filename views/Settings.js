@@ -80,7 +80,7 @@ const Home = {
     </el-card>
 
     
-    <el-card shadow="never" class="box-card mb-10 p-3 pb-5" style="background: #f5f7fa">
+    <el-card shadow="never" class="el-cs-disabled mb-10 p-3 pb-5">
       <el-text type="primary" class="text-lg font-bold">Step 2: Product Alt texts (for Woocommerce)</el-text>
       <el-alert title="Get Pro version to enable Bulk Image Alt Text for Woocommerce Products" type="error" class="mb-5 mt-5" />
 

@@ -16,6 +16,10 @@ body {
   color: var(--el-color-error);
 }
 
+.el-cs-disabled {
+  background-color: var(--el-disabled-bg-color);
+}
+
 /* .container-card .el-card__body {
   padding-top: 0;
   padding-bottom: 0;
