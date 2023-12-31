@@ -12,6 +12,9 @@ body {
 .el-cs-success {
   color: var(--el-color-success);
 }
+.el-cs-error {
+  color: var(--el-color-error);
+}
 
 /* .container-card .el-card__body {
   padding-top: 0;

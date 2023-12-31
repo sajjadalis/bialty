@@ -1,16 +1,16 @@
 import {
-	Info,
-	Check,
-	Close,
-	Page,
-	Cart,
-	Website,
-	Review,
-	AutoFocusIcon,
+  Info,
+  Check,
+  Close,
+  Page,
+  Cart,
+  Website,
+  Review,
+  AutoFocusIcon,
 } from "../components/Icons.js";
 
 const Home = {
-	template: `
+  template: `
   <div>
     
     <el-card shadow="never" class="box-card mb-10 p-3 pb-5">
@@ -80,7 +80,7 @@ const Home = {
     </el-card>
 
     
-    <el-card shadow="never" class="box-card mb-10 p-3 pb-5">
+    <el-card shadow="never" class="box-card mb-10 p-3 pb-5" style="background: #f5f7fa">
       <el-text type="primary" class="text-lg font-bold">Step 2: Product Alt texts (for Woocommerce)</el-text>
       <el-alert title="Get Pro version to enable Bulk Image Alt Text for Woocommerce Products" type="error" class="mb-5 mt-5" />
 
@@ -233,93 +233,93 @@ const Home = {
     </div>
   </div>
   `,
-	components: {
-		Info,
-		Check,
-		Close,
-		AutoFocusIcon,
-	},
-	setup() {
-		const { ref, onMounted, watch } = Vue;
+  components: {
+    Info,
+    Check,
+    Close,
+    AutoFocusIcon,
+  },
+  setup() {
+    const { ref, onMounted, watch } = Vue;
 
-		const active = ref(0);
-		const disable_gallery = ref(false);
+    const active = ref(0);
+    const disable_gallery = ref(false);
 
-		const next = () => {
-			if (active.value++ > 3) active.value = 0;
-		};
+    const next = () => {
+      if (active.value++ > 3) active.value = 0;
+    };
 
-		const prev = () => {
-			active.value--;
-		};
+    const prev = () => {
+      active.value--;
+    };
 
-		const value = ref("alt_empty_fkw");
-		const options = [
-			{
-				value: "",
-				label: "Disabled",
-			},
-			{
-				value: "alt_empty_fkw",
-				label: "Yoast / Rank Math Focus Keyword",
-			},
-			{
-				value: "alt_empty_title",
-				label: "Post Title",
-				disabled: true,
-			},
-			{
-				value: "alt_empty_imagename",
-				label: "Image Name",
-				disabled: true,
-			},
-			{
-				value: "alt_empty_both",
-				label: "Yoast / Rank Math Focus Keyword & Post Title",
-				disabled: true,
-			},
-		];
+    const value = ref("alt_empty_fkw");
+    const options = [
+      {
+        value: "",
+        label: "Disabled",
+      },
+      {
+        value: "alt_empty_fkw",
+        label: "Yoast / Rank Math Focus Keyword",
+      },
+      {
+        value: "alt_empty_title",
+        label: "Post Title",
+        disabled: true,
+      },
+      {
+        value: "alt_empty_imagename",
+        label: "Image Name",
+        disabled: true,
+      },
+      {
+        value: "alt_empty_both",
+        label: "Yoast / Rank Math Focus Keyword & Post Title",
+        disabled: true,
+      },
+    ];
 
-		const blacklist = ref([]);
-		const posts = [
-			{
-				value: 1,
-				label: "Exploring the Enchanting Streets of Paris",
-			},
-			{
-				value: 2,
-				label: "Adventures in the Serene Landscapes of Kyoto",
-			},
-			{
-				value: 3,
-				label: "Discovering Hidden Gems in the Amalfi Coast",
-			},
-			{
-				value: 4,
-				label: "Journey through the Vibrant Markets of Marrakech",
-			},
-			{
-				value: 5,
-				label: "Escaping to the Tranquil Islands of Bali",
-			},
-		];
+    const blacklist = ref([]);
+    const posts = [
+      {
+        value: 1,
+        label: "Exploring the Enchanting Streets of Paris",
+      },
+      {
+        value: 2,
+        label: "Adventures in the Serene Landscapes of Kyoto",
+      },
+      {
+        value: 3,
+        label: "Discovering Hidden Gems in the Amalfi Coast",
+      },
+      {
+        value: 4,
+        label: "Journey through the Vibrant Markets of Marrakech",
+      },
+      {
+        value: 5,
+        label: "Escaping to the Tranquil Islands of Bali",
+      },
+    ];
 
-		// Return data and methods to be used in the template
-		return {
-			active,
-			next,
-			prev,
-			value,
-			options,
-			disable_gallery,
-			blacklist,
-			posts,
-			Page,
-			Cart,
-			Website,
-			Review,
-		};
-	},
+    // Return data and methods to be used in the template
+    return {
+      active,
+      next,
+      prev,
+      value,
+      options,
+      disable_gallery,
+      blacklist,
+      posts,
+      Page,
+      Cart,
+      Website,
+      Review,
+    };
+  },
 };
 
 export default Home;
